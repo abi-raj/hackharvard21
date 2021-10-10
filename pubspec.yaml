@@ -35,7 +35,9 @@ dependencies:
   path:
   flutter_staggered_grid_view:
   intl:
-  
+  flutter_local_notifications:
+  http:
+  rxdart:
 
 
 dev_dependencies:

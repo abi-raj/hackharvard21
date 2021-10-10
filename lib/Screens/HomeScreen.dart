@@ -3,6 +3,7 @@ import 'package:hackharvard21/Screens/Main/MainScreen.dart';
 import 'package:hackharvard21/Screens/Contact/ContactScreen.dart';
 import 'package:hackharvard21/Screens/Settings/SettingsScreen.dart';
 import 'package:hackharvard21/Widgets/home/BottomAppBarWidget.dart';
+import 'package:hackharvard21/utils/notificationsApi.dart';
 
 import 'Routines/RoutineScreen.dart';
 
@@ -30,6 +31,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
     setState(() {
       _currentIndex = index;
+    });
+  }
+
+  @override
+  void initState() {
+    NotificationsApi.initialize();
+    listenNotifications();
+    super.initState();
+  }
+
+  void listenNotifications() {
+    NotificationsApi.onNotifications.stream.listen((event) {
+      Navigator.pushNamed(context, '/medicine');
     });
   }
 

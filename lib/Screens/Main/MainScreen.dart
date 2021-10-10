@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackharvard21/styles/text.dart';
+import 'package:hackharvard21/utils/notificationsApi.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -64,9 +65,14 @@ class _HomePageState extends State<HomePage> {
         ),
         Row(
           children: [
-            Icon(
-              Icons.notifications,
-              size: 30,
+            IconButton(
+              onPressed: () {
+                NotificationsApi.imageNotification();
+              },
+              icon: Icon(
+                Icons.notifications,
+                size: 30,
+              ),
             ),
             SizedBox(
               width: 10,

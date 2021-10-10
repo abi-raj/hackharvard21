@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 class Utils {
   static List<Widget> heightBetween(
@@ -17,5 +21,15 @@ class Utils {
     list.add(children.last);
 
     return list;
+  }
+
+  static Future<String> downloadFile(String url, String filename) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final finalPath = '${directory.path}/$filename';
+    final response = await http.get(Uri.parse(url));
+    final file = File(finalPath);
+
+    await file.writeAsBytes(response.bodyBytes);
+    return finalPath;
   }
 }
