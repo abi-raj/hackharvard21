@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackharvard21/Screens/Locations/LocationScreen.dart';
 
 import 'Screens/HomeScreen.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       home: MainPage(),
       routes: {
         '/home': (context) => HomeScreen(),
+        '/location': (context) => LocationsPage(),
       },
     );
   }

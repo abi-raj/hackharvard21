@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hackharvard21/Screens/Main/MainScreen.dart';
-import 'package:hackharvard21/Screens/Notes/NotesScreen.dart';
+import 'package:hackharvard21/Screens/Contact/ContactScreen.dart';
 import 'package:hackharvard21/Screens/Settings/SettingsScreen.dart';
+import 'package:hackharvard21/Widgets/home/BottomAppBarWidget.dart';
 
 import 'Routines/RoutineScreen.dart';
 
@@ -13,15 +14,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 3;
   var _children = [
     HomePage(),
     RoutinePage(),
-    NotesPage(),
+    RoutinePage(),
+    ContactsPage(),
     SettingsPage(),
   ];
 
   void onTapped(int index) {
+    if (index == 2) {
+      index--;
+    }
+
     setState(() {
       _currentIndex = index;
     });
@@ -30,35 +36,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: onTapped,
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home',
-              backgroundColor: Theme.of(context).primaryColor,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.timer),
-              label: 'Routine',
-              backgroundColor: Theme.of(context).primaryColor,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.contacts),
-              label: 'Contacts',
-              backgroundColor: Theme.of(context).primaryColor,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-              backgroundColor: Theme.of(context).primaryColor,
-            ),
-          ]),
-    );
+        body: _children[_currentIndex],
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(
+            Icons.location_on_outlined,
+            size: 25,
+          ),
+          onPressed: () {
+            print('unsrop');
+            Navigator.pushNamed(context, '/location');
+          },
+        ),
+        bottomNavigationBar:
+            bottomAppBarWidget(_currentIndex, onTapped, context));
   }
 }
