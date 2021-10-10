@@ -46,12 +46,15 @@ class _HomePageState extends State<HomePage> {
       children: [
         Row(
           children: [
-            Icon(
-              Icons.location_on_outlined,
-              size: 30,
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.location_on_outlined,
+                size: 30,
+              ),
             ),
             Text(
-              "Dubai Kurukku ",
+              "NY, The States ",
               style: textStyleBlack(
                 FontWeight.w300,
                 18.0,
@@ -68,9 +71,14 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               width: 10,
             ),
-            Icon(
-              Icons.person_pin,
-              size: 30,
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/you');
+              },
+              icon: Icon(
+                Icons.supervised_user_circle,
+                size: 30,
+              ),
             ),
           ],
         ),

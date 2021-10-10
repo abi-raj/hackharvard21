@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hackharvard21/Screens/Locations/LocationScreen.dart';
 
 import 'Screens/HomeScreen.dart';
+import 'Screens/Routines/medicines/MedicineScreen.dart';
 import 'Screens/Routines/notes/AudioHome.dart';
 import 'Screens/Routines/notes/NotesScreen.dart';
 import 'Screens/Routines/notes/TextHome.dart';
 import 'Screens/Routines/notes/VideoHome.dart';
+import 'Screens/Routines/tasks/TasksScreen.dart';
+import 'Screens/YouScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,6 +31,9 @@ class MyApp extends StatelessWidget {
         '/textNotes': (context) => TextNotesPage(),
         '/videoNotes': (context) => VideoNotesPage(),
         '/audioNotes': (context) => AudioNotesPage(),
+        '/you': (context) => YouPage(),
+        '/daily': (context) => DailyTasksPage(),
+        '/medicine': (context) => MdicinePage(),
       },
     );
   }

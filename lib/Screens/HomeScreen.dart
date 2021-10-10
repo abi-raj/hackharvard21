@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 3;
+  int _currentIndex = 0;
   var _children = [
     HomePage(),
     RoutinePage(),

@@ -35,14 +35,18 @@ class _RoutinePageState extends State<RoutinePage> {
               card('Notes', Colors.orange[200], () {
                 Navigator.pushNamed(context, '/notes');
               }),
-              card('Daily Tasks', Colors.blue[200], () {}),
+              card('Daily Tasks', Colors.blue[200], () {
+                Navigator.pushNamed(context, '/daily');
+              }),
             ],
           ),
           SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              card('Medicines', Colors.grey[500], () {}),
+              card('Medicines', Colors.grey[500], () {
+                Navigator.pushNamed(context, '/medicine');
+              }),
               card('Daily Quiz', Colors.pink[200], () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return CategoryPage(
