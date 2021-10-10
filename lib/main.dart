@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hackharvard21/Screens/Locations/LocationScreen.dart';
 
 import 'Screens/HomeScreen.dart';
+import 'Screens/Routines/notes/AudioHome.dart';
+import 'Screens/Routines/notes/NotesScreen.dart';
+import 'Screens/Routines/notes/TextHome.dart';
+import 'Screens/Routines/notes/VideoHome.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +24,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => HomeScreen(),
         '/location': (context) => LocationsPage(),
+        '/notes': (context) => NotesPage(),
+        '/textNotes': (context) => TextNotesPage(),
+        '/videoNotes': (context) => VideoNotesPage(),
+        '/audioNotes': (context) => AudioNotesPage(),
       },
     );
   }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hackharvard21/Models/quiz/catogories.dart';
 import 'package:hackharvard21/styles/text.dart';
+
+import '../category_page.dart';
 
 class RoutinePage extends StatefulWidget {
   const RoutinePage({Key? key}) : super(key: key);
@@ -29,16 +32,24 @@ class _RoutinePageState extends State<RoutinePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              card('Notes', Colors.orange[200]),
-              card('Daily Tasks', Colors.blue[200]),
+              card('Notes', Colors.orange[200], () {
+                Navigator.pushNamed(context, '/notes');
+              }),
+              card('Daily Tasks', Colors.blue[200], () {}),
             ],
           ),
           SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              card('Medicines', Colors.grey[500]),
-              card('Daily Quiz', Colors.pink[200]),
+              card('Medicines', Colors.grey[500], () {}),
+              card('Daily Quiz', Colors.pink[200], () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CategoryPage(
+                    category: categories.first,
+                  );
+                }));
+              }),
             ],
           ),
         ],
@@ -46,23 +57,26 @@ class _RoutinePageState extends State<RoutinePage> {
     );
   }
 
-  Widget card(title, color) {
-    return Container(
-      height: 150,
-      width: 150,
-      margin: EdgeInsets.all(5),
-      child: Center(
-        child: Text(
-          title,
-          style: textStyleWhite(
-            FontWeight.normal,
-            22.0,
+  Widget card(title, color, onTap) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 150,
+        width: 150,
+        margin: EdgeInsets.all(5),
+        child: Center(
+          child: Text(
+            title,
+            style: textStyleWhite(
+              FontWeight.normal,
+              22.0,
+            ),
           ),
         ),
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: color,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: color,
+        ),
       ),
     );
   }
